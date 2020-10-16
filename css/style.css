@@ -1,7 +1,7 @@
 
 
 body {
-	font-size:   20pt;
+	font-size:   1.3em;
 	color:       #222;
 	background:  #e9dae3;
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-family: 'Monoton', cursive;
-    font-size:     30pt;
+    font-size:     3em;
 	line-height:   1;
 	margin-bottom: 0.5em;
 	margin-top:    0.5em;
@@ -125,7 +125,7 @@ h1 {
 
 h2 {
     font-family: 'Bebas Neue', cursive;
-    font-size:     2.5em;
+    font-size:     2em;
 	margin-bottom: 0.75em;
 	margin-top:    1.5em;
 }
