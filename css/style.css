@@ -12,7 +12,7 @@ body {
     margin-bottom: 10%;
 }
 
-/* Style the header with a grey background and some padding */
+/* Style the header  */
 .header {
     position: relative;
     top: -1em;
@@ -36,7 +36,7 @@ body {
   /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
   .header a.logo {
     font-family: 'Bebas Neue', cursive;
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bold;
     color: #ffffff
   }
