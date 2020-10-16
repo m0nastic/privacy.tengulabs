@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Monoton&display=swap');
+            </style>
+        <link rel="import" href="header.html">
+        <title>USENIX PEPR 2020 Day 1 Notes</title>
+	</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="logo">Privacy.Tengulabs.com</a>
+    <div class="header-right">
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </div>
+    </div>
+<h1>USENIX PEPR 2020</h1> 
+<h2>Day 1 Notes</h2>
+
+<p>These are notes from the first day of talks at PEPR 2020 (<a href="https://www.usenix.org/blog/future-usenix-report-annual-membership-meeting">possibly the last year of PEPR</a>, although Lorrie and Lea mentioned during the introductory remarks that they were working on a plan for next year).</p>
+
+<p>These notes are mostly for my own purposes, but I hope they might be helpful to anyone wondering about what the sessions covered.</p> 
+
+<p>Sessions that are outlined with a border are ones that I wanted to highlight specifically, though I was super impressed by all of the talks today.</p>
+
+<h2>Data Governance Track</h2>
+
+<div class="session">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/walker">Beyond Access: Using Abac Frameworks to Implement Privacy and Security Policies</a></h3>
+
+        <p><a href="https://twitter.com/_Amanda_Walker">Amanda Walker</a>, Nuna, Inc.</p>
+
+        <p>Amanda discussed implementing ABAC frameworks (Attribute-based Access Control), as well as describing how access control has evolved over time. She identified some early examples of ABAC frameworks (<a href="https://en.wikipedia.org/wiki/XACML">XACML</a>, <a href="https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.800-162.pdf">NIST 800-162</a>, <a href="https://docs.microsoft.com/en-us/windows/win32/secauthz/security-descriptor-definition-language?redirectedfrom=MSDN">Microsoft SDDL</a>), and made the case that you really need to adopt both strategies of using object attributes and a policy service to handle the types of access control policies that you’d want to implement. I am not super familiar with ABAC’s, but I found the idea that you could develop a very granular and comprehensive access control system with context super appealing.</p>
+    </div>
+</div>
+<br>
+<div class="session">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/care">Privacy Architecture for Data-Driven Innovation</a></h3>
+
+        <p>Derek Care, Legal Director, Privacy at Uber; <a href="https://twitter.com/NishantBhajaria">Nishant Bhajari</a>, Privacy Architecture and Strategy at Uber</p>
+        
+        <p>Derek and Nishant’s talk was about expanding your privacy architecture beyond just breaches, and discussed both general data classification examples, as well as a specific system that was implemented at Uber to assist with data inventory (with a particular focus on maintaining data protection while sharing data). That system crawls data sources and maintains a metadata store which allows Uber to do both manual and ML-powered categorization. I thought the metadata registry was very interesting.</p>
+        
+    </div>
+</div>
+<br>
+
+<div class="highlightedSession">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/saint-jacques"> Responsible Design through Experimentation: Learnings from LinkedIn </a></h3>
+
+        <p>Guillaume Saint-Jacques, LinkedIn Corporation</p>
+        
+        <p>This was a super-neat talk by Guillaume that talked about a framework for determining whether a new feature would make outcomes more equal or more unequal. This is another area I have very little knowledge of (that’s going to be a recurring theme in many of these talks). </p>
+
+        <p>One interesting method they discussed is using <a href="https://en.wikipedia.org/wiki/Atkinson_index">The Atkinson inequality index</a> in performing A/B testing. In the example he was using at LinkedIn, the index was used to identify if a new feature (such as an instant notification about a job posting) would increase or decrease equal outcomes. If you imagine that a feature has a higher engagement rate with a certain category of users, you can extrapolate that the feature may make inequalities worse. I can see myself trying to shoehorn the Atkinson inequality index into all kinds of places it probably doesn’t warrant (like the slide deck I’m preparing to give my partner tonight about dinner selection).</p>
+        
+    </div>
+</div>
+
+
+<h2>Privacy-Preserving Data Analysis</h2>
+
+<div class="session">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/jansen">Building and Deploying a Privacy Preserving Data Analysis Platform</a></h3>
+
+        <p>Frederick Jansen, <a href="https://twitter.com/hicsail">Boston University</a></p>
+        
+        <p>This talk included a very interesting experience report about an <a href="https://en.wikipedia.org/wiki/Secure_multi-party_computation">MPC</a> (multi-party computation) system that was devised for a platform that ingests wage data from multiple sources. Frederick discussed the evolution of the approach that they used, and some of the communication issues around re-assuring stakeholders (explaining how the secret sharing wouldn’t reveal the underlying data they were trying to protect).</p>
+        
+    </div>
+</div>
+<br>
+
+<div class="session">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/rogers">A Differentially Private Data Analytics API at Scale</a></h3>
+        <p>Ryan Rogers, LinkedIn</p>
+        
+        <p>This was the first talk that touched on <a href="https://en.wikipedia.org/wiki/Differential_privacy">differential privacy</a>, and it described an analytics system at LinkedIn that allows for advertisers to run specific queries. Ryan touched on the foundational aspects to differential privacy, and then described the approach they took at LinkedIn to build the aforementioned analytics system.</p> 
+    </div>
+    </div>
+<br>
+
+<div class="highlightedSession">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/perera">Improving Usability of Differential Privacy at Scale</a></h3>
+
+        <p><a href="https://twitter.com/edh128">Milinda Perera</a> and <a href="https://twitter.com/miguelguevaraii">Miguel Guevara</a>‎, Google LLC</p>
+        
+        <p>Milinda and Miguel’s talk was also about differential privacy, but specifically how to improve the usability of a reporting system at Google that you could theoretically use to tune the parameters of your query. I was particularly stoked (Stoked? This is what’s become of my life) about a brief mention on <a href="https://petsymposium.org/2020/files/papers/issue2/popets-2020-0025.pdf">using a SQL engine to query with differential privacy</a>. One of the first things I was interested in about differential privacy was about whether it made sense to put the “DP-engine” into the data store (I was imagining like a Postgres plugin that you’d just enable), vs. at the application logic layer. We are living in exciting times!</p> 
+    </div>
+</div>
+
+<h2>Design</h2>
+
+<div class="session">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/cranor">How to (In)Effectively Convey Privacy Choices with Icons and Link Text</a></h3>
+
+        <p><a href="https://twitter.com/lorrietweet">Lorrie Faith Cranor</a>, Carnegie Mellon University; <a href="https://twitter.com/floschaub">Florian Schaub</a>, University of Michigan</p>
+        
+        <p>This was an interesting talk that hit a little close to home (I had to work with our web team to implement the required verbiage for CCPA last year). Lorrie and Florian discussed a test they conducted that showed participants multiple different versions of the privacy iconography and link text that was being ratified by the California Attorneys General. There was confusion from participants about whether the icon provided by the CalA’sG was actually a toggle (basically the inverse of what iOS looked like in the dark confusing years before they realized a button should look at least vaguely like a button).</p>
+        
+    </div>
+</div>
+<br>
+
+<div class="highlightedSession">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/kraemer" title="Beyond the Individual: Exploring Data Protection by Design in Connected Communal Spaces">Beyond the Individual: Exploring Data Protection by Design in Connected Communal Spaces</a></h3>
+
+        <p><a href="https://twitter.com/markraemer">Martin J. Kraemer</a>, University of Oxford</p>
+        
+        <p>Yet another area I hadn’t given much consideration, Martin’s talk was about participatory co-design workshops (which I didn’t even know were a thing, but of course they are, and they seem like a good idea) where the group identified two semi-shared communal locations (a cafe and a home) and devised some ideas for handling data privacy in those spaces. One particular idea he calls a “data flush” which provides reassurance from the occupants of the communal space that their device information is deleted when they leave. Neat.</p>
+    </div>
+</div>
+<br>
+
+<div class="session">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/crowley" title="Throwing Out the Checklist">Throwing Out the Checklist</a></h3>
+
+        <p><a href="https://twitter.com/thisisfinedan">Dan Crowley</a>, Quizlet</p>
+        
+        <p>Dan’s talk dealt with the approach they took at Quizlet for integrating data privacy into the culture of the company, vs. just implementing a bunch of checklists (see the title fo the talk) for the privacy team to manage. He refers to this as a “privacy by ethos” culture, and it’s a sentiment that I’ve seen echoed more and more on the information security side (deputizing everyone to be responsible for security vs. keeping that responsibility in a centralized security organization).</p>
+    </div>
+</div>
+
+
+<h2>Product Privacy</h2>
+
+<div class="session">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/oliveira" title="Product Privacy Journey: Towards a Product Centric Privacy Engineering Framework">Product Privacy Journey: Towards a Product Centric Privacy Engineering Framework</a></h3>
+
+        <p><a href="https://twitter.com/igortolivei">Igor Trindade Oliveira</a>, Work &amp; Co</p>
+        
+        <p>Igor’s talk was about product-centric privacy engineering frameworks; specifically some product and privacy principles to guide product decisions at all phases of the product (as opposed to things just being bolted on later). The principles he discussed were “No choice is forever”, “Context is key”, “Sharing should add value”, “Plain language empowers”, “Tricks erode trust”, and “Personal data belongs to individuals”. These seem like useful principles to keep in mind when designing a product. </p>  
+    </div>
+</div>
+<br>
+
+<div class="session">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/ruiz" title="Wikipedia and the Lean Data Diet">Wikipedia and the Lean Data Diet</a></h3>
+
+        <p><a href="https://twitter.com/pantojacoder">Nuria Ruiz</a>, Principal Engineer, Wikimedia Foundation</p>
+        
+        <p>This was a very interesting talk by Nuria about how Wikipedia’s privacy policy came to be, and what measures they use to enforce privacy on a platform with the unique challenges of Wikipedia. One of the neat takeaways for me was when she described the process they use for data deletion (basically you execute a dry-run of the data you want to delete and it generates a checksum, which is then validated against the actual deletion command). I can envision a lot of situations where that idea might come in handy. Another key point is the idea of pruning the data (my words, not hers) at the point of ingestion (like overwriting an IP address with the country) so that un-sanitized data is never even stored.</p>
+    </div>
+</div>
+<br>
+
+<div class="highlightedSession">
+    <div class="container">
+        <h3><a href="https://www.usenix.org/conference/pepr20/presentation/ensign" title="Privacy Professional Boss Mode">Privacy Professional Boss Mode</a></h3>
+
+        <p>Melanie Ensign, Discernible Inc.</p>
+        
+        <p>Melanie is a badass, and her talk was fantastic. Like Dan’s talk above, I feel like there’s a lot of advice here that is just as relevant to information security champions within a company (particularly the ideas around being a strategic advisor, and always looking to provide business value). She specifically makes the argument that just relying on compliance as the vehicle to get privacy taken seriously within your organization has some pitfalls, and provided some very helpful advice around advising senior leadership.</p>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+
